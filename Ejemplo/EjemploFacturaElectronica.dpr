@@ -297,10 +297,9 @@ begin
           trasladosImpuestosLocalesv1.TasadeTraslado   := '0.01';
           trasladosImpuestosLocalesv1.Importe          := '1.00';
 
-          nuevaFactura.DeclareNamespace('implocal', 'http://www.sat.gob.mx/implocal');
-          TFacturacionHelper.AgregarSchemaLocation(nuevaFactura, 'http://www.sat.gob.mx/implocal');
-          TFacturacionHelper.AgregarSchemaLocation(nuevaFactura, 'http://www.sat.gob.mx/sitio_internet/cfd/implocal/implocal.xsd');
-          nuevaFactura.AgregarComplemento(impuestoLocalv1);
+          nuevaFactura.AgregarComplemento(impuestoLocalv1,
+                                          'implocal', 'http://www.sat.gob.mx/implocal',
+                                          'http://www.sat.gob.mx/implocal http://www.sat.gob.mx/sitio_internet/cfd/implocal/implocal.xsd');
           {$ENDREGION}
 
           //admonFacturas.GuardarArchivo(nuevaFactura,
